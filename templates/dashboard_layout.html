@@ -63,7 +63,7 @@
             <ul class="list-unstyled CTAs">
                 <li>
 
-                    <form action="" method="post">
+                    <form action="{% url 'logout' %}" method="post">
                         {% csrf_token%}
                         <button class="btn btn-block mt-5" type="submit" id="logout">Logout</button>
                     </form>
