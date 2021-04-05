@@ -1,0 +1,23 @@
+{% extends 'dashboard_layout.html' %} {% block body%} 
+{% load crispy_forms_tags %}
+
+  <!-- Tab -->
+<div class="row">
+  <div class="card shadow col-md-8">
+    <h2 class="text-uppercase mb-3">Detail of {{ object.name }}</h2>
+      <form  method="post">
+<p>Age: {{ object.age }}</p>
+<p>Current Resident: {{ object.address }}</p>
+<p>Birth Province: {{ object.province }}</p>
+<p>Birth District: {{ object.district }}</p>
+<p>Birth Sector: {{ object.sector }}</p>
+<p>date Registered: {{ object.dob|date }}</p>
+<p>Date: {{ now|date }}</p>
+    <a href="{% url 'list_beneficiary' %}" class="btn btn-primary">Cancel</a>
+    <a href="{% url 'update_beneficiary' beneficiary.id %}" style="float:right" class="btn btn-primary">Edit</a>
+  </form>
+
+  </div>
+</div>
+
+{% endblock body %}
