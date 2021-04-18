@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'beneficiary',
     'drugs',
     'workers',
-    'workstation'
+    'workstation',
+    'sweetify'
 ]
 
 MIDDLEWARE = [
