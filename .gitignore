@@ -2,6 +2,8 @@ accounts/migrations/*
 *.pyc
 beneficiary/migrations/*
 workstation/migrations/*
+workers/migrations/*
+drugs/migrations/*
 
 
 *.pyc
