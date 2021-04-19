@@ -95,10 +95,20 @@ DATABASES = {
         'NAME': 'FMCFA',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'USER': 'Edison',
-        'PASSWORD': 'lewandowiski',
+        'USER': 'root',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'test',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'USER': 'root',
+#         'password':'root'
+
+#     }
+# }
 
 
 # Password validation
@@ -161,4 +171,3 @@ EMAIL_HOST_USER = 'docslostfound.noreply@gmail.com'
 EMAIL_HOST_PASSWORD = 'lewandowiski'
 EMAIL_USE_TLS = True
 EMAIL_TIMEOUT = 30000
-
