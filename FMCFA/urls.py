@@ -7,4 +7,5 @@ urlpatterns = [
     path('dashboard/', render_dashboard, name='dashboard'),
     path('accounts/', include('accounts.urls')),
     path('pharmacist/', include('workers.urls.pharmacist_urls')),
+    path('hospitalAgent/', include('workers.urls.hosAgent_urls')),
 ]

@@ -25,7 +25,7 @@ class HospitalAgentForm(forms.ModelForm):
         model = HospitalAgent
         fields = '__all__'
         widgets = {
-            'name': TextInput(attrs={'class': 'form-control', 'placeholder': "Enter pharcist"}),
+            'name': TextInput(attrs={'class': 'form-control', 'placeholder': "Enter hospital Agent"}),
             'address': TextInput(attrs={'class': 'form-control', 'placeholder': "Enter your Address"}),
             'phone': TextInput(attrs={'class': 'form-control', 'placeholder': "Enter your phone"}),
             'email': TextInput(attrs={'class': 'form-control', 'placeholder': "Enter your email"}),

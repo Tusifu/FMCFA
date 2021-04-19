@@ -23,7 +23,7 @@ error_message = 'Something Wrong Happened, please Try Again'
 @method_decorator(login_required, name='dispatch')
 class HospitalAgentList(ListView):
     model = HospitalAgent
-    template_name = HospitalAgent_list_template
+    template_name = hosAgent_list_template
     paginate_by = 5
     context_object_name = 'hospitalAgents'
 
@@ -41,7 +41,7 @@ class HospitalAgentList(ListView):
 @method_decorator(login_required, name='dispatch')
 class HospitalAgentCreateView(CreateView):
     model = HospitalAgent
-    template_name = create_hospitalAgent_template
+    template_name = create_hosAgent_template
     form_class = HospitalAgentForm
 
 
@@ -61,7 +61,7 @@ class HospitalAgentCreateView(CreateView):
 class HospitalAgentUpdate(UpdateView):
     model = HospitalAgent
     form_class = HospitalAgentForm
-    template_name = create_hospitalAgent_template
+    template_name = create_hosAgent_template
     context_object_name = 'hospitalAgent'
 
     def get_object(self):
@@ -74,7 +74,7 @@ class HospitalAgentUpdate(UpdateView):
 
     def get_success_url(self):
         sweetify.success(self.request, success, text='You have successfully Update HospitalAgent info', icon='success', timerProgressBar='true', timer=3000)
-        return reverse_lazy('HospitalAgent_list')
+        return reverse_lazy('hospitalAgent_list')
 
 
 @login_required(login_url='/accounts/login')

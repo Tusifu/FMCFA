@@ -1,7 +1,7 @@
 import django_filters
 from django_filters import CharFilter
 from django.db.models import Q
-from workers.models.HospitalAgent import HospitalAgent
+from workers.models.hosAgent import HospitalAgent
 
 
 # class for filter the knowledge base and render the list conditionally
