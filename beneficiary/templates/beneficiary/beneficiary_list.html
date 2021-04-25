@@ -1,28 +1,51 @@
-{% extends 'dashboard_layout.html' %}
-{% block body %}
-    <div class="row">
-        <div class="col-md-9">
-            <table border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>Gender</th>
-                    <th>dob</th>
-                    <th>district</th>
-                    <th>Action</th>
-                </tr>
-                {% for beneficiary in beneficiaries %}
-                                <tr>
-                    <td>{{beneficiary.name}}</td>
-                    <td>{{beneficiary.address}}</td>
-                    <td>{{beneficiary.dob}}</td>
-                    <td>{{beneficiary.district}}</td>
-                    <td><a href="{% url 'detail_beneficiary' beneficiary.id %}">View</a>
-                        <a href="{% url 'update_beneficiary' beneficiary.id %}">Edit</a>
-                    </td>
-                </tr>
-                {% endfor %}
 
+{% extends 'dashboard_layout.html' %} {% block title %}Beneficiary{% endblock %} {% block body %}
+
+<div class="content-dashboard">
+    <h3 class="text-uppercase text-info">list of Beneficiary</h3>
+    <a class="btn btn-primary mt-1 mb-1" href="{% url 'create_beneficiary' %}" style="text-decoration: none;">Add
+        pharmacist</a>
+    <div class="row">
+        <div class="col-md-12 card shadow-sm  pb-7 p-4">
+            {% include 'generic/filter_form.html' %}
+            <table class="table table-hover">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Province</th>
+                        <th scope="col">District</th>
+                        <th scope="col">sector</th>
+                        <th scope="col">Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%if beneficiaries %}{% for new in beneficiaries %}
+                    <tr style='cursor: pointer;' onclick="window.location='{% url 'detail_beneficiary' pk=new.id %}';">
+                        <td>{{ new.name|slice:"20" }}{% if new.name|length > 20 %}...{% endif %}
+                        </td>
+                        
+                        <td>{{ new.age|slice:"15" }}{% if new.email|length > 15 %}...{% endif %}</td>
+                        <td>{{ new.province|slice:"20" }}{% if new.province|length > 20 %}...{% endif %}</td>
+                        <td>{{ new.district|slice:"20" }}{% if new.district|length > 20 %}...{% endif %}</td>
+                        <td>{{ new.sector|slice:"20" }}{% if new.sector|length > 20 %}...{% endif %}</td>
+                        <td>{{ new.cell|slice:"20" }}{% if new.cell|length > 20 %}...{% endif %}</td>
+                        <td>{{ new.address|slice:"15" }}{% if new.address|length > 15 %}...{% endif %}</td>
+                    </tr>
+                    {% endfor %} {% else %}
+                    <tr>
+                        <td colspan="2">
+                            <p class="text-centered ">No Data to Display</p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
             </table>
+            {% include 'generic/paginator.html' %}
         </div>
     </div>
-{% endblock body %}
+</div>
+<script>
+</script>
+{% endblock %}
