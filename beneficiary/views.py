@@ -38,3 +38,6 @@ class BeneficiaryUpdateView(UpdateView):
     fields = '__all__'
     success_url = "view"
     template_name = 'beneficiary/update_beneficiary.html'
+
+
+    

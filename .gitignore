@@ -4,6 +4,7 @@ beneficiary/migrations/*
 workstation/migrations/*
 workers/migrations/*
 drugs/migrations/*
+FMCFA/__init__.py
 
 
 *.pyc
