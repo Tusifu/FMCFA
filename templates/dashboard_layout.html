@@ -54,8 +54,28 @@
                     <a href="{% url 'dashboard' %}"><span class="feather icon-home"></span> Dashboard</a>
                 </li>
                 {% if user.is_superuser %}
+                <li class="{% if 'hospital' in request.path %} active {% endif %}">
+                    <a href=""><span class="feather icon-home"></span> Hospitals</a>
+                </li>
+                {% endif %}
+                {% if user.is_superuser %}
+                <li class="{% if 'pharmacy' in request.path %} active {% endif %}">
+                    <a href=""><span class="feather icon-link"></span> Pharmacy</a>
+                </li>
+                {% endif %}
+                {% if user.is_superuser %}
+                <li class="{% if 'pharmacist' in request.path %} active {% endif %}">
+                    <a href="{% url 'pharmacist_list' %}"><span class="feather icon-user"></span> Pharmacist</a>
+                </li>
+                {% endif %}
+                {% if user.is_superuser %}
+                <li class="{% if 'hospitalAgent' in request.path %} active {% endif %}">
+                    <a href="{% url 'hospitalAgent_list'%}"><span class="feather icon-user"></span> HospitalAgent</a>
+                </li>
+                {% endif %}
+                {% if user.is_superuser %}
                 <li class="{% if 'category' in request.path %} active {% endif %}">
-                    <a href=""><span class="feather icon-link"></span> Beneficiary</a>
+                    <a href=""><span class="feather icon-user"></span> Beneficiary</a>
                 </li>
                 {% endif %}
             </ul>
@@ -119,9 +139,9 @@
                 $(this).toggleClass('active');
             });
         });
-        
+
     </script>
-        <script type="text/javascript" src="{% static '/js/sweetalert2.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/sweetalert2.js' %}"></script>
 
     {% load sweetify %} {% sweetify %}
 </body>
