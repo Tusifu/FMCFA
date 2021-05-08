@@ -1,0 +1,124 @@
+{% extends 'dashboard_layout.html' %}
+{% block title %}
+FMCFA Dashboard
+{% endblock title %}
+{% block extrahead %}
+<script type="text/javascript">
+  // declaration of the variables to be used 
+  // and pass the data form the view
+
+  {% comment %} var lostN = {{ lostnumber }}
+  var foundF = {{ foundnumber }}
+  var received = {{ receivednumber }}
+  var waiting = {{ waitingnumber }}
+  var nationalIdL = {{ nationalidlost }}
+  var drivingLicenseL = {{ drivinglicenselost }}
+  var nationalIdF = {{ nationalidfound }}
+  var drivingLicenseF = {{ drivinglicensefound }} {% endcomment %}
+  $(document).ready(function () {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'March', 'Apr', 'May', 'Jun', 'Juil', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: '# of beneficiaries',
+          data: [12, 11, 5, 20,3,6,22,1,26,6,9,10],
+          backgroundColor: [
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+            'rgba(43, 50, 80)',
+
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            gridLines: {
+              display: true
+            },
+            ticks: {
+              beginAtZero: true
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              display: false
+            },
+          }],
+        },
+        title: {
+          display: true,
+          text: 'Document Status chart'
+        }
+      }
+    });
+  });
+</script>
+{% endblock extrahead %}
+{% block body %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+  </ol>
+</nav>
+<div class="row mb-5">
+  <div class="col-md-3">
+    <div class="card shadow card-rounded p-2" style="background-color: #EBECED;">
+      <h3 class="text-default">No of Hospitals</h3>
+      <div class="text-center">
+        <h3>
+          4
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow card-rounded p-2" style="background-color: #EBECED;">
+      <h3 class="text-default">No  of Pharmacist</h3>
+      <div class="text-center">
+        <h3>
+          8
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow card-rounded p-2" style="background-color: #EBECED;">
+      <h3 class="text-default">beneficiaries</h3>
+      <div class="text-center">
+        <h3>
+          10
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow card-rounded p-2" style="background-color: #EBECED;">
+      <h3 class="text-default">No of Drugs</h3>
+      <div class="text-center">
+        <h3>
+          30
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <canvas id="myChart" width="70" height="32"></canvas>
+  </div>
+</div>
+
+{% endblock body %}

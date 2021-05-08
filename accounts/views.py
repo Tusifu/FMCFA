@@ -6,12 +6,16 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
+from beneficiary.models import Beneficiary
+from workstation.models.pharmacy import Pharmacy
+from workstation.models.hospital import Hospital
+from drugs.models import DrugsIssuing
 
 
 
 # Create your views here.
 def render_dashboard(request):
-    return render(request, 'dashboard_layout.html')
+    return render(request, 'dashboard/main_dashboard.html')
 
 @login_required(login_url='/accounts/login')
 def change_password(request):
@@ -56,3 +60,13 @@ def logout_view(request):
     if request.method == 'POST':
         logout(request)
         return redirect('login')
+
+
+
+def dashboardPage(request):
+    no_of_beneficieries = Beneficiary.objects.all().count()
+    no_of_hospitals = Hospital.objects.all().count()
+    no_of_pharmacist =  Pharmacy.objects.all().count()
+    no_of_drugs = DrugsIssuing.objects.all().count()
+    return render(request, 'dashboard/main_dashboard.html', {'no_of_beneficieries': no_of_beneficieries, 'no_of_hospitals': no_of_hospitals, 'no_of_hospitals': no_of_hospitals,
+     'no_of_drugs': no_of_drugs})
