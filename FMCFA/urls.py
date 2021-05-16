@@ -10,5 +10,6 @@ urlpatterns = [
     path('drug/', include('drugs.urls')),
     path('pharmacist/', include('workers.urls.pharmacist_urls')),
     path('hospitalAgent/', include('workers.urls.hosAgent_urls')),
+    path('report/', include('workers.urls.report_urls')),
 ]
  

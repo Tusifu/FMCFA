@@ -101,12 +101,11 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'test',
+#         'NAME': 'FMCFA',
 #         'HOST': '127.0.0.1',
 #         'PORT': '3306',
-#         'USER': 'root',
-#         'password':'root'
-
+#         'USER': 'Edison',
+#         'PASSWORD':'lewandowiski'
 #     }
 # }
 
