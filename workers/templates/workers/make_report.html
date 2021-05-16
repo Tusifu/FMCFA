@@ -1,0 +1,71 @@
+{% extends 'dashboard_layout.html' %}
+{% load widget_tweaks %}
+{% block body %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'dashboard'%}">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Report</li>
+    </ol>
+</nav>
+<h3>REPORT</h3>
+<div class="card px-1 pb-1 p-4 shadow shadow-default col-xs-8 col-sm-8 col-md-6 col-lg-6 mb-3">
+    <form action="" method="POST" id="myForm">
+        {% csrf_token %}
+        <div class="row mt-2">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <label for="id_end_date" class="text-black-50">Beneficiary ID :</label>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                {% render_field my_filter.form.id class="form-control"  %}
+            </div>
+        </div>
+                <div class="row mt-2">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <label for="id_end_date" class="text-black-50">Beneficiary Name :</label>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                {% render_field my_filter.form.name class="form-control"  %}
+            </div>
+        </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary mr-1 mb-1">Generate Report</button>
+                    <button type="reset" class="btn btn-outline-primary mr-1 mb-1">Reset</button>
+
+                </div>
+            </div>
+    </form>
+    <!-- <a href="{% url 'reports:download_pdf'%}">Download pdf</a> -->
+</div>
+
+{% comment %} {% block javascript %}
+
+    <script>
+    $(document).ready(function () {
+        $("#range").addClass("d-none");
+        var sel = document.getElementById('id_date_range');
+        var opt = document.createElement('option');
+        opt.appendChild(document.createTextNode('custom'));
+        opt.value = 'custom';
+        sel.appendChild(opt);
+
+        $("#id_date_range").change(function () {
+            var e = document.getElementById("id_date_range")
+            var selectedValue = e.options[e.selectedIndex].value;
+
+            if (selectedValue == "custom") {
+                event.preventDefault()
+                $("#range").removeClass("d-none");
+            } else {
+                event.preventDefault()
+                document.getElementById("id_start_date").value = "";
+                document.getElementById("id_end_date").value = "";
+                $("#range").addClass("d-none");
+            }
+        })
+    });
+
+</script>
+{% endblock javascript %} {% endcomment %}
+
+{% endblock body %}

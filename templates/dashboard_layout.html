@@ -75,7 +75,12 @@
                 {% endif %}
                 {% if user.is_superuser %}
                 <li class="{% if 'category' in request.path %} active {% endif %}">
-                    <a href=""><span class="feather icon-user"></span> Beneficiary</a>
+                    <a href="{% url 'list_beneficiary' %}"><span class="feather icon-user"></span> Beneficiary</a>
+                </li>
+                {% endif %}
+                {% if user.is_superuser %}
+                <li class="{% if 'report' in request.path %} active {% endif %}">
+                    <a href="{% url 'reports:generate_report' %}"><span class="feather icon-user"></span>Passing Paper</a>
                 </li>
                 {% endif %}
             </ul>
