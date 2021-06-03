@@ -11,5 +11,6 @@ urlpatterns = [
     path('pharmacist/', include('workers.urls.pharmacist_urls')),
     path('hospitalAgent/', include('workers.urls.hosAgent_urls')),
     path('report/', include('workers.urls.report_urls')),
+    path('hospital/', include('workstation.urls.hospital_urls')),
 ]
  
