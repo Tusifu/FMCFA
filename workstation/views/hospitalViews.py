@@ -9,7 +9,7 @@ from workstation.models.hospital import Hospital, HospitalForm
 from workstation.filters.hospital_filter import HospitalFilter
 
 
-# Create your views here.
+# Create your views here
 """
     declaration of some data
 """
